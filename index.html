@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123d60">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Ojos en Alerta">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <title>Ojos en Alerta | Monte Cristo</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ENCABEZADO -->
+        <header class="header">
+            <div class="brand">
+                <img src="./ojosalerta.png" alt="Logo Ojos en Alerta" class="logo">
+                <div class="brand-text">
+                    <h1>OJOS EN ALERTA</h1>
+                    <p>MONTE CRISTO</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="header-button" id="btnNoticias" aria-label="Notificaciones">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+                        <path d="M10 21h4"/>
+                    </svg>
+                    <span>Noticias</span>
+                </button>
+
+                <button class="header-button" id="btnRegistro" aria-label="Registro">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M5 21v-2a7 7 0 0 1 14 0v2"/>
+                    </svg>
+                    <span>Registro</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- PRESENTACIÓN -->
+        <section class="welcome">
+            <h2>¿QUÉ ESTÁ SUCEDIENDO?</h2>
+            <p>Seleccioná el tipo de situación que necesitás reportar.</p>
+        </section>
+
+        <!-- BOTONES PRINCIPALES -->
+        <main>
+            <section class="emergency-grid">
+
+                <!-- ASALTO -->
+                <button class="emergency-button orange" data-category="Asalto">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2 3 7v5c0 5.5 3.8 8.5 9 10 5.2-1.5 9-4.5 9-10V7l-9-5Z"/>
+                        <path d="M12 8v5"/>
+                        <circle cx="12" cy="17" r="1"/>
+                    </svg>
+                    <span>ASALTO</span>
+                </button>
+
+                <!-- AMBULANCIA -->
+                <button class="emergency-button red" data-category="Ambulancia">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 6h11v12H3z"/>
+                        <path d="M14 10h4l3 4v4h-7z"/>
+                        <path d="M8.5 9v6M5.5 12h6"/>
+                        <circle cx="7" cy="19" r="1.5"/>
+                        <circle cx="18" cy="19" r="1.5"/>
+                    </svg>
+                    <span>AMBULANCIA</span>
+                </button>
+
+                <!-- VIOLENCIA -->
+                <button class="emergency-button purple" data-category="Violencia">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="8" cy="7" r="3"/>
+                        <circle cx="17" cy="8" r="2.5"/>
+                        <path d="M2 21v-2a6 6 0 0 1 12 0v2"/>
+                        <path d="M14 14a5 5 0 0 1 8 4v3h-5"/>
+                    </svg>
+                    <span>VIOLENCIA</span>
+                </button>
+
+                <!-- BOMBEROS -->
+                <button class="emergency-button orange" data-category="Bomberos">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22a8 8 0 0 0 8-8c0-4-3-7-6-12 0 4-2 5-3 6-1-2-2-3-2-5-4 4-5 7-5 11a8 8 0 0 0 8 8Z"/>
+                        <path d="M12 22a4 4 0 0 0 4-4c0-2-2-4-3-6-1 2-5 4-5 6a4 4 0 0 0 4 4Z"/>
+                    </svg>
+                    <span>BOMBEROS</span>
+                </button>
+
+                <!-- MÓVIL -->
+                <button class="emergency-button blue" data-category="Móvil Policial">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 15l2-6h14l2 6v4H3z"/>
+                        <path d="M7 9l2-4h6l2 4"/>
+                        <path d="M9 5V3h6v2"/>
+                        <circle cx="7" cy="18" r="1.5"/>
+                        <circle cx="17" cy="18" r="1.5"/>
+                        <path d="M10 12h4"/>
+                    </svg>
+                    <span>MÓVIL</span>
+                </button>
+
+                <!-- ALERTA -->
+                <button class="emergency-button yellow" data-category="Alerta">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3 2 21h20L12 3Z"/>
+                        <path d="M12 9v5"/>
+                        <circle cx="12" cy="17" r="1"/>
+                    </svg>
+                    <span>ALERTA</span>
+                </button>
+
+            </section>
+
+            <!-- BOTÓN 911 -->
+            <button class="emergency-button button-911" id="btn911">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6l-9-4Z"/>
+                    <path d="M12 7v6"/>
+                    <circle cx="12" cy="16" r="1"/>
+                </svg>
+                <span>EMERGENCIA 911</span>
+                <small>Acceso directo a emergencias</small>
+            </button>
+        </main>
+
+        <!-- AVISOS GENERADOS -->
+        <section class="notifications-section">
+            <div class="section-heading">
+                <h2>AVISOS RECIENTES</h2>
+                <span class="live-indicator">SISTEMA ACTIVO</span>
+            </div>
+
+            <div id="notificationsList" class="notifications-list">
+                <p class="empty-message">
+                    Todavía no hay avisos registrados.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>OJOS EN ALERTA · MONTE CRISTO</p>
+            <span>Comprometidos con la seguridad de nuestra comunidad.</span>
+        </footer>
+    </div>
+
+    <!-- MODALES -->
+    <div class="modal-overlay" id="optionsModal">
+        <div class="modal">
+            <button class="close-modal" data-close aria-label="Cerrar">×</button>
+            <div class="modal-heading">
+                <h2 id="modalTitle">Seleccioná una opción</h2>
+                <p id="modalDescription">Indicá qué situación necesitás reportar.</p>
+            </div>
+            <div id="optionsContainer" class="options-container"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal">
+            <button class="close-modal" data-close aria-label="Cerrar">×</button>
+            <div class="modal-heading">
+                <h2 id="reportTitle">Nuevo aviso</h2>
+                <p>Completá los datos de la situación.</p>
+            </div>
+
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="reportLocation">Ubicación actual (GPS)</label>
+                    <input type="text" id="reportLocation" value="Obteniendo ubicación GPS..." readonly style="background-color: #f1f5f9; color: #64748b; font-weight: 600; cursor: not-allowed;">
+                </div>
+
+                <div class="form-group">
+                    <label for="reportDescription">Descripción (opcional)</label>
+                    <textarea id="reportDescription" placeholder="Contanos brevemente qué está sucediendo..." rows="3"></textarea>
+                </div>
+
+                <p class="demo-warning">
+                    El aviso será enviado a la central de monitoreo municipal para su debida atención.
+                </p>
+
+                <button type="submit" class="submit-button">ENVIAR ALERTA</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="newsModal">
+        <div class="modal">
+            <button class="close-modal" data-close aria-label="Cerrar">×</button>
+            <div class="modal-heading">
+                <h2>NOTIFICACIONES</h2>
+                <p>Comunicados y anuncios oficiales.</p>
+            </div>
+            <div class="news-empty">
+                <p>No hay comunicados publicados actualmente.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal">
+            <button class="close-modal" data-close aria-label="Cerrar">×</button>
+            <div class="modal-heading">
+                <h2>REGISTRO DE USUARIO</h2>
+                <p>El registro es opcional para utilizar esta aplicación.</p>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="userName">Nombre y apellido</label>
+                    <input type="text" id="userName" placeholder="Ingresá tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="userPhone">Teléfono</label>
+                    <input type="tel" id="userPhone" placeholder="Ingresá tu teléfono" required>
+                </div>
+
+                <p class="demo-warning">
+                    Tus datos se utilizarán exclusivamente para agilizar la asistencia en emergencias.
+                </p>
+
+                <button type="submit" class="submit-button">REGISTRARME</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+            console.error("No se pudo registrar el service worker:", error);
+          });
+        });
+      }
+    </script>
+</body>
+</html>

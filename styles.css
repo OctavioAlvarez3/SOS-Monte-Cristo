@@ -1,0 +1,771 @@
+/* =====================================================
+   OJOS EN ALERTA - MONTE CRISTO
+   ESTILOS GENERALES (CIUDADANO Y ADMIN)
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul: #123d60;
+    --azul-claro: #1e6091;
+    --rojo: #e32636;
+    --naranja: #f07819;
+    --violeta: #7541a5;
+    --amarillo: #f2c230;
+    --fondo: #eef2f6;
+    --blanco: #ffffff;
+    --texto: #263445;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 650px;
+    min-height: 100vh;
+    margin: auto;
+    background: #ffffff;
+    padding: 18px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ENCABEZADO CIUDADANO */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8edf2;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.logo {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+}
+
+.brand-text h1 {
+    color: var(--azul);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.brand-text p {
+    color: #6e7e8e;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.header-button {
+    border: none;
+    background: #f0f4f8;
+    color: var(--azul);
+    border-radius: 10px;
+    padding: 9px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.header-button svg {
+    width: 21px !important;
+    height: 21px !important;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* PRESENTACIÓN */
+.welcome {
+    text-align: center;
+    padding: 27px 5px 22px;
+}
+
+.welcome h2 {
+    color: var(--azul);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.welcome p {
+    color: #758392;
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+/* GRILLA DE BOTONES */
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+.emergency-button {
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 118px;
+    padding: 15px 8px;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.12);
+}
+
+.emergency-button svg {
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px;
+    max-height: 38px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.emergency-button span {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+.orange { background: var(--naranja); }
+.red    { background: var(--rojo); }
+.purple { background: var(--violeta); }
+.blue   { background: var(--azul-claro); }
+.yellow { background: var(--amarillo); color: #292929; }
+
+/* BOTÓN 911 */
+.button-911 {
+    width: calc(100% - 12px);
+    margin: 17px auto 0;
+    min-height: 90px;
+    background: #c90020;
+    border: 3px solid #a90019;
+    border-radius: 15px;
+    gap: 5px;
+}
+
+.button-911 svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.button-911 span {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.button-911 small {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* AVISOS RECIENTES */
+.notifications-section {
+    margin-top: 30px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    color: var(--azul);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.live-indicator {
+    font-size: 9px;
+    font-weight: 800;
+    color: #6a7480;
+    background: #edf0f3;
+    padding: 6px 9px;
+    border-radius: 20px;
+}
+
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #8a97a4;
+    font-size: 11px;
+    padding: 22px 10px;
+    background: #f6f8fa;
+    border-radius: 10px;
+}
+
+.notification-card {
+    border-left: 6px solid var(--notification-color);
+    background: #f6f8fa;
+    padding: 13px;
+    border-radius: 9px;
+}
+
+.notification-card h3 {
+    font-size: 13px;
+    color: var(--notification-color);
+    margin-bottom: 7px;
+    font-weight: 800;
+}
+
+.notification-card p {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #485564;
+}
+
+.notification-card small {
+    display: block;
+    margin-top: 8px;
+    font-size: 9px;
+    color: #8793a0;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    text-align: center;
+    margin-top: 35px;
+    padding: 18px 5px 8px;
+    border-top: 1px solid #e8edf2;
+}
+
+footer p {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--azul);
+    letter-spacing: 1px;
+}
+
+footer span {
+    display: block;
+    margin-top: 7px;
+    font-size: 9px;
+    color: #8995a0;
+}
+
+/* MODALES */
+.modal-overlay, .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 26, 40, 0.72);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.modal-overlay.active, .modal-backdrop:not(.hidden) {
+    display: flex;
+}
+
+.modal, .modal-card {
+    width: 100%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px 20px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: none;
+    color: #758392;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-heading, .modal-header {
+    text-align: center;
+    margin: 10px 0 22px;
+}
+
+.modal-heading h2, .modal-header h3 {
+    font-size: 18px;
+    color: var(--azul);
+    font-weight: 800;
+}
+
+.modal-heading p, .modal-desc {
+    color: #82909e;
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.option-button {
+    width: 100%;
+    border: none;
+    border-radius: 11px;
+    padding: 16px;
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* FORMULARIOS */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--azul);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #dce3e9;
+    border-radius: 9px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    resize: vertical;
+}
+
+.demo-warning {
+    background: #fff5dd;
+    color: #755719;
+    padding: 11px;
+    border-radius: 8px;
+    font-size: 10px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.submit-button, .btn-primary-confirm {
+    width: 100%;
+    background: var(--azul);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.news-empty {
+    padding: 20px;
+    background: #f4f6f8;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 11px;
+    color: #82909e;
+}
+
+/* =====================================================
+   ESTILOS DEL PANEL DE ADMINISTRACIÓN (FONDO BLANCO)
+===================================================== */
+.admin-body {
+    background: var(--fondo); /* Fondo general claro (#eef2f6) */
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+.login-backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-card {
+    background: #ffffff; /* Tarjeta de login en blanco puro */
+    padding: 35px 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid #e8edf2;
+}
+
+/* Contenedor y estilo para la imagen del logo en el login del operador */
+.login-brand-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.login-logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.login-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: var(--azul);
+}
+
+.login-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.login-card input {
+    background: #f8fafc;
+    border: 1px solid #dce3e9;
+    color: var(--texto);
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.login-error {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.login-footer-link {
+    margin-top: 20px;
+}
+
+.login-footer-link a {
+    color: var(--azul-claro);
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.admin-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.admin-header {
+    background: #ffffff; /* Encabezado admin blanco */
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    border: 1px solid #e8edf2;
+}
+
+.admin-title h2 {
+    font-size: 1.2rem;
+    color: var(--azul);
+}
+
+.admin-title p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.admin-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-box {
+    background: #f8fafc;
+    border: 1px solid #e8edf2;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.text-danger { color: #ef4444; }
+.text-warning { color: #d97706; }
+.text-success { color: #059669; }
+
+.stat-label {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.btn-logout {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.admin-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-btn {
+    background: #ffffff;
+    color: #64748b;
+    border: 1px solid #dce3e9;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.filter-btn.active {
+    background: var(--azul);
+    color: #fff;
+    border-color: var(--azul);
+}
+
+.filter-link-citizen {
+    margin-left: auto;
+    color: var(--azul-claro);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 15px;
+}
+
+.admin-card {
+    background: #ffffff; /* Tarjetas de avisos en blanco */
+    border-radius: 12px;
+    padding: 18px;
+    border-left: 5px solid var(--azul);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    border-top: 1px solid #e8edf2;
+    border-right: 1px solid #e8edf2;
+    border-bottom: 1px solid #e8edf2;
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.alert-category-tag {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--azul);
+}
+
+.status-pill {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-pending { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.status-progress { background: rgba(217, 119, 6, 0.1); color: #d97706; }
+
+.admin-detail {
+    font-size: 0.85rem;
+    color: #4b5563;
+    margin-bottom: 6px;
+}
+
+.admin-meta {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #e8edf2;
+    font-size: 0.75rem;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-dispatch {
+    flex: 1;
+    background: #d97706;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-complete {
+    flex: 1;
+    background: #059669;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Toast flotante de notificaciones admin */
+.admin-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    border-left: 5px solid #ef4444;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999;
+    border: 1px solid #e8edf2;
+    animation: slideUp 0.3s ease;
+}
+
+.toast-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #ef4444;
+}
+
+.toast-content h4 {
+    font-size: 0.9rem;
+    color: var(--azul);
+}
+
+.toast-content p {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Gráficos de estadísticas con fondo claro */
+.chart-bar-item {
+    background: #f8fafc;
+    border: 1px solid #e8edf2;
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
+.chart-info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    color: #4b5563;
+}
+
+.chart-track {
+    background: #e2e8f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.chart-fill {
+    background: var(--azul);
+    height: 100%;
+    border-radius: 4px;
+}
