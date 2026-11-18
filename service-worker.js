@@ -1,4 +1,4 @@
-const CACHE_NAME = "ojos-en-alerta-public-v1";
+const CACHE_NAME = "ojos-en-alerta-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -7,7 +7,8 @@ const APP_SHELL = [
   "./ojosalerta.png",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+  "./icons/apple-touch-icon.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -30,8 +31,27 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
+  const url = new URL(request.url);
 
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+
+  // Always try the latest page first; use the cached page when offline.
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put("./index.html", copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
+
+  // Network-first for app assets, with a cached fallback when offline.
   event.respondWith(
     fetch(request)
       .then((response) => {
@@ -41,6 +61,6 @@ self.addEventListener("fetch", (event) => {
         }
         return response;
       })
-      .catch(() => caches.match(request).then((cached) => cached || caches.match("./index.html")))
+      .catch(() => caches.match(request))
   );
 });

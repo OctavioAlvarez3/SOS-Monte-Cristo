@@ -587,30 +587,192 @@ footer span {
     font-size: 0.85rem;
 }
 
+
+/* =====================================================
+   BOTONES DE FILTROS - CENTRAL DE MONITOREO
+===================================================== */
+
 .admin-filters {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 22px;
     flex-wrap: wrap;
     align-items: center;
 }
 
 .filter-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
     background: #ffffff;
-    color: #64748b;
-    border: 1px solid #dce3e9;
-    padding: 8px 14px;
-    border-radius: 8px;
+    color: #526477;
+
+    border: 1px solid #e0e7ef;
+    padding: 12px 19px;
+    border-radius: 11px;
+
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.84rem;
+
+    box-shadow: 0 3px 8px rgba(18, 61, 96, 0.045);
+
+    transition: all 0.25s ease;
 }
 
-.filter-btn.active {
-    background: var(--azul);
-    color: #fff;
-    border-color: var(--azul);
+/* ÍCONOS DECORATIVOS */
+
+.filter-btn:nth-of-type(1)::before {
+    content: "▦";
+    font-size: 17px;
 }
+
+.filter-btn:nth-of-type(2)::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #fff0f0;
+    color: #df4149;
+    font-weight: 900;
+}
+
+.filter-btn:nth-of-type(3)::before {
+    content: "↻";
+    font-size: 18px;
+}
+
+.filter-btn:nth-of-type(4)::before {
+    content: "▥";
+    font-size: 17px;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+
+.filter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(18, 61, 96, 0.12);
+    border-color: #b9ccdd;
+}
+
+/* TODAS */
+
+.filter-btn:nth-of-type(1).active {
+    background: linear-gradient(135deg, #123d60, #1e6091);
+    color: #ffffff;
+    border-color: #123d60;
+    box-shadow: 0 4px 12px rgba(18, 61, 96, 0.22);
+}
+
+.filter-btn:nth-of-type(1).active::before {
+    color: #ffffff;
+}
+
+/* SIN ATENDER */
+
+.filter-btn:nth-of-type(2) {
+    color: #d9434b;
+    border-color: #f2d5d7;
+}
+
+.filter-btn:nth-of-type(2):hover {
+    background: #fff5f5;
+}
+
+.filter-btn:nth-of-type(2).active {
+    background: linear-gradient(135deg, #d9434b, #ed6268);
+    color: #ffffff;
+    border-color: #d9434b;
+    box-shadow: 0 4px 12px rgba(217, 67, 75, 0.22);
+}
+
+.filter-btn:nth-of-type(2).active::before {
+    background: #ffffff;
+    color: #d9434b;
+}
+
+/* EN CURSO */
+
+.filter-btn:nth-of-type(3) {
+    color: #bd741d;
+    border-color: #f0dfc6;
+}
+
+.filter-btn:nth-of-type(3):hover {
+    background: #fff9ef;
+}
+
+.filter-btn:nth-of-type(3).active {
+    background: linear-gradient(135deg, #bd741d, #e49a3e);
+    color: #ffffff;
+    border-color: #bd741d;
+    box-shadow: 0 4px 12px rgba(189, 116, 29, 0.20);
+}
+
+/* ESTADÍSTICAS */
+
+.filter-btn:nth-of-type(4) {
+    color: #6551a2;
+    border-color: #e1dcf2;
+}
+
+.filter-btn:nth-of-type(4):hover {
+    background: #f7f5ff;
+}
+
+.filter-btn:nth-of-type(4):active {
+    transform: scale(0.97);
+}
+
+/* ACCESIBILIDAD */
+
+.filter-btn:focus-visible {
+    outline: 3px solid rgba(30, 96, 145, 0.3);
+    outline-offset: 3px;
+}
+
+/* BOTÓN VISTA CIUDADANA */
+
+.filter-link-citizen {
+    margin-left: auto;
+    color: var(--azul-claro);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.filter-link-citizen:hover {
+    color: #123d60;
+    transform: translateX(3px);
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+
+@media (max-width: 650px) {
+    .admin-filters {
+        gap: 9px;
+    }
+
+    .filter-btn {
+        padding: 11px 13px;
+        font-size: 0.76rem;
+    }
+
+    .filter-link-citizen {
+        margin-left: 0;
+        width: 100%;
+        padding: 8px 0;
+    }
+}
+
 
 .filter-link-citizen {
     margin-left: auto;
@@ -636,6 +798,68 @@ footer span {
     border-right: 1px solid #e8edf2;
     border-bottom: 1px solid #e8edf2;
 }
+
+
+/* =====================================================
+   COLORES DE LAS FRANJAS DE ALERTAS
+===================================================== */
+
+/* NARANJA: Asalto y Bomberos */
+.admin-card.blink-orange,
+.admin-card.border-orange {
+    border-left-color: #f07819;
+    --color-alerta: #f07819;
+}
+
+/* ROJO: Ambulancia */
+.admin-card.blink-red,
+.admin-card.border-red {
+    border-left-color: #e32636;
+    --color-alerta: #e32636;
+}
+
+/* VIOLETA: Violencia */
+.admin-card.blink-violet,
+.admin-card.border-violet {
+    border-left-color: #7541a5;
+    --color-alerta: #7541a5;
+}
+
+/* AZUL: Móvil Policial */
+.admin-card.blink-blue,
+.admin-card.border-blue {
+    border-left-color: #1e6091;
+    --color-alerta: #1e6091;
+}
+
+/* AMARILLO: Alerta */
+.admin-card.blink-yellow,
+.admin-card.border-yellow {
+    border-left-color: #d4a900;
+    --color-alerta: #d4a900;
+}
+
+
+/* =====================================================
+   PARPADEO DE ALERTAS SIN ATENDER
+===================================================== */
+
+.admin-card[class*="blink-"] {
+    animation: alertaTitilandoColor 1s infinite;
+}
+
+@keyframes alertaTitilandoColor {
+    0%, 100% {
+        border-left-width: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    50% {
+        border-left-width: 8px;
+        box-shadow: 0 0 14px var(--color-alerta);
+    }
+}
+
 
 .admin-card-header {
     display: flex;
@@ -765,7 +989,173 @@ footer span {
 }
 
 .chart-fill {
-    background: var(--azul);
+    background: var(--chart-color, var(--azul));
     height: 100%;
     border-radius: 4px;
+}
+
+
+/* =====================================================
+   ENCABEZADO - CENTRAL DE MONITOREO
+   ESTILO INSTITUCIONAL + TECNOLÓGICO + PREMIUM
+===================================================== */
+
+.admin-header {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(110deg, #ffffff 0%, #f8fbff 65%, #f1f6fa 100%);
+    border: 1px solid #dce6ef;
+    border-radius: 14px;
+    padding: 22px 25px;
+    box-shadow: 0 5px 18px rgba(18, 61, 96, 0.07);
+}
+
+/* Detalle institucional superior */
+.admin-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #123d60,
+        #1e6091,
+        #6d9fbd
+    );
+}
+
+/* TÍTULO */
+.admin-title h2 {
+    color: #123d60;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.admin-title p {
+    color: #718096;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* CONTENEDOR DE CONTADORES */
+.admin-stats {
+    display: flex;
+    gap: 12px;
+}
+
+/* TARJETAS DE CONTADORES */
+.stat-box {
+    position: relative;
+    min-width: 105px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #e0e8f0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(18, 61, 96, 0.035);
+    transition: all 0.2s ease;
+}
+
+/* Pequeño detalle al pasar el cursor */
+.stat-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(18, 61, 96, 0.08);
+    border-color: #cbdbe8;
+}
+
+/* NÚMEROS */
+.stat-num {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+/* COLORES DE LOS CONTADORES */
+.text-danger {
+    color: #e34b50;
+}
+
+.text-warning {
+    color: #d58a25;
+}
+
+.text-success {
+    color: #29966a;
+}
+
+/* DESCRIPCIÓN DE CONTADORES */
+.stat-label {
+    display: block;
+    color: #718096;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+    text-transform: uppercase;
+}
+
+/* BOTÓN CERRAR SESIÓN */
+.btn-logout {
+    background: linear-gradient(135deg, #ed4b4b, #df3838);
+    color: #ffffff;
+    border: 1px solid rgba(200, 40, 40, 0.15);
+    padding: 10px 17px;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    box-shadow: 0 3px 7px rgba(227, 59, 59, 0.13);
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(135deg, #df3838, #c92e2e);
+    box-shadow: 0 5px 10px rgba(227, 59, 59, 0.18);
+    transform: translateY(-1px);
+}
+
+/* ADAPTACIÓN PARA PANTALLAS PEQUEÑAS */
+@media (max-width: 650px) {
+    .admin-header {
+        padding: 18px;
+    }
+
+    .admin-header-right {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .admin-stats {
+        flex: 1;
+        gap: 7px;
+    }
+
+    .stat-box {
+        min-width: 0;
+        flex: 1;
+        padding: 9px 6px;
+    }
+
+    .stat-label {
+        font-size: 0.57rem;
+    }
+
+    .btn-logout {
+        width: 100%;
+    }
+}
+
+
+/* Compatibilidad con áreas seguras de iPhone (notch y barra inferior). */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }

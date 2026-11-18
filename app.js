@@ -295,20 +295,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (storedAlerts.length > 0 && notificationsList) {
         storedAlerts.slice(0, 5).forEach(aviso => crearTarjetaCiudadano(aviso));
     }
+
+
 });
 
-// Almacenamiento local de avisos en este dispositivo.
-// Esta versión es una demostración pública: no envía avisos a una central compartida.
 function getStoredAlerts() {
-    try {
-        const data = localStorage.getItem("monte_cristo_alerts");
-        return data ? JSON.parse(data) : [];
-    } catch (error) {
-        console.error("No se pudieron leer los avisos guardados:", error);
-        return [];
-    }
-}
-
-function saveStoredAlerts(alerts) {
-    localStorage.setItem("monte_cristo_alerts", JSON.stringify(alerts));
+  const data = localStorage.getItem("monte_cristo_alerts");
+  return data ? JSON.parse(data) : [];
 }

@@ -4,7 +4,7 @@
   "short_name": "Ojos en Alerta",
   "description": "Aplicación ciudadana de Ojos en Alerta de Monte Cristo, Córdoba.",
   "lang": "es-AR",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
