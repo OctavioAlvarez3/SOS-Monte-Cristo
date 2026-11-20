@@ -1150,12 +1150,3 @@ footer span {
         width: 100%;
     }
 }
-
-
-/* Compatibilidad con áreas seguras de iPhone (notch y barra inferior). */
-@supports (padding: env(safe-area-inset-top)) {
-  body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}

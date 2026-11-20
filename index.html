@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#123d60">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Ojos en Alerta">
-    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
     <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
     <title>Ojos en Alerta | Monte Cristo</title>
 
     <link rel="stylesheet" href="styles.css">
@@ -191,7 +191,7 @@
                 </div>
 
                 <p class="demo-warning">
-                    El aviso será enviado a la central de monitoreo municipal para su debida atención.
+                    Esta versión todavía no está conectada a la central. El aviso se guarda únicamente en este dispositivo y no solicita asistencia. Ante una emergencia real, llamá al 911.
                 </p>
 
                 <button type="submit" class="submit-button">ENVIAR ALERTA</button>
@@ -244,9 +244,8 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./service-worker.js").catch((error) => {
-            console.error("No se pudo registrar el service worker:", error);
-          });
+          navigator.serviceWorker.register("./service-worker.js")
+            .catch(error => console.error("No se pudo registrar el service worker:", error));
         });
       }
     </script>

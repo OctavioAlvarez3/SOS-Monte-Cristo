@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
             crearTarjetaCiudadano(nuevoAviso);
             cerrarModal(reportModal);
             reportForm.reset();
-            alert("✅ ¡Alerta enviada con éxito utilizando GPS a la Central de Monitoreo!");
+            alert("Aviso guardado únicamente en este dispositivo. Esta versión todavía no está conectada a la central y no se ha enviado ayuda. Ante una emergencia real, llamá al 911.");
         });
     }
 
@@ -296,10 +296,14 @@ document.addEventListener("DOMContentLoaded", () => {
         storedAlerts.slice(0, 5).forEach(aviso => crearTarjetaCiudadano(aviso));
     }
 
-
 });
 
+// Los avisos de esta versión pública se guardan solo en el dispositivo.
 function getStoredAlerts() {
-  const data = localStorage.getItem("monte_cristo_alerts");
-  return data ? JSON.parse(data) : [];
+  try { return JSON.parse(localStorage.getItem("monte_cristo_alerts") || "[]"); }
+  catch (error) { console.warn("No se pudieron leer los avisos locales.", error); return []; }
+}
+
+function saveStoredAlerts(alerts) {
+  localStorage.setItem("monte_cristo_alerts", JSON.stringify(alerts));
 }
